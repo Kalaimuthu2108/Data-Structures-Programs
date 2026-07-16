@@ -1,0 +1,96 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# Creating nodes
+n1 = Node("Anbae Peranbae")
+n2 = Node("Munbe Vaa")
+n3 = Node("Vaseegara")
+n4 = Node("New York Nagaram")
+n5 = Node("Pookal Pookum")
+n6 = Node("Thalli Pogathey")
+n7 = Node("Megham Karukatha")
+n8 = Node("Kaathalae Kaathalae")
+n9 = Node("Unakkenna Venum Sollu")
+
+# Linking nodes
+n1.next = n2
+n2.next = n3
+n3.next = n4
+n4.next = n5
+n5.next = n6
+n6.next = n7
+n7.next = n8
+n8.next = n9
+
+head = n1
+
+def display(head):
+    temp = head
+    while temp:
+        print(temp.data)
+        temp = temp.next
+
+print("Original Playlist")
+display(head)
+
+# Insert at Beginning
+print("\nInsert at Beginning")
+new1 = Node("Nenjukkul Peidhidum")
+new1.next = head
+head = new1
+display(head)
+
+# Insert at Middle
+print("\nInsert at Middle")
+new2 = Node("Maruvaarthai")
+new2.next = n5.next
+n5.next = new2
+display(head)
+
+# Insert at End
+print("\nInsert at End")
+new3 = Node("Kannamma")
+temp = head
+while temp.next:
+    temp = temp.next
+temp.next = new3
+display(head)
+
+# Delete at Beginning
+print("\nDelete at Beginning")
+head = head.next
+display(head)
+
+# Delete at Middle
+print("\nDelete at Middle")
+
+print("\nBefore Deletion:")
+display(head)
+
+temp = head
+while temp.next.data != "Maruvaarthai":
+    temp = temp.next
+
+print("\nDeleting node:", temp.next.data)
+temp.next = temp.next.next
+
+print("\nAfter Deletion:")
+display(head)
+
+# Delete at End
+print("\nDelete at End")
+
+print("\nBefore Deletion:")
+display(head)
+
+temp = head
+while temp.next.next:
+    temp = temp.next
+
+print("\nDeleting node:", temp.next.data)
+temp.next = None
+
+print("\nAfter Deletion:")
+display(head)
