@@ -1,0 +1,45 @@
+class Node:
+      def __init__(self,data):
+            self.data=data
+            self.next=None
+class Stack:
+      def __init__(self):
+            self.top=None
+      def is_empty(self):
+            return self.top is None
+      def push(self,data):
+            new_node=Node(data)
+            new_node.next=self.top
+            self.top=new_node
+      def pop(self):
+            if self.is_empty():
+                  return None
+            popped_data=self.top.data
+            self.top=self.top.next
+            return popped_data
+      def peek(self):
+            if self.is_empty():
+                  return None
+            return self.top.data
+stack=Stack()
+stack.push("Harry Pooter 1")
+stack.push("Harry Potter 2")
+stack.push("Harry Potter 3")
+while True:
+      print("1.Push\n2.Pop\n3.Peek\n4.Exit")
+      ch=int(input("Enter the choice(1-4):"))
+      if (ch==1):
+            a=input("Enter a Book:")
+            stack.push(a)
+            print("Book Pushed Sucessfully!!")
+      elif(ch==2):
+            print("Popped Element:",stack.pop())
+            print("Book Popped Sucessfully!!")
+      elif(ch==3):
+            print("Peek:",stack.peek())
+            print("Peek Element is Showed")
+      elif(ch==4):
+            break
+      else:
+            print("Invalid Input")  
+      
